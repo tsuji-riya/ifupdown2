@@ -2,7 +2,7 @@ name: release.yml
 on:
   push:
     tags:
-      - 'v*.*.*' # Trigger on version tags like v1.0.0
+      - '*.*.*' # Trigger on version tags like v1.0.0
 
 
 jobs:
