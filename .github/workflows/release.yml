@@ -13,6 +13,9 @@ jobs:
 
       - name: Set up Build Environment
         run: |
-          dpkg --add-architecture arm64
-          apt-get update
-          apt-get install -y build-essential devscripts dh-systemd fakeroot python-all python-docutils iproute2 python-ipaddr python-setuptools dh-python python3-all python3-setuptools python3-docutils ethtool bridge-utils python-gvgen python-mako
+          sudo dpkg --add-architecture arm64
+          sudo apt-get update
+          sudo apt-get install -y build-essential devscripts dh-systemd fakeroot python-all python-docutils iproute2 python-ipaddr python-setuptools dh-python python3-all python3-setuptools python3-docutils ethtool bridge-utils python-gvgen python-mako
+
+      - name: Build Package
+        run: make deb
