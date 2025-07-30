@@ -12,9 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Replace sources.list for arm64 packages
+      - name: Add ports.ubuntu.com sources for arm64
         run: |
-          echo "deb http://ports.ubuntu.com/ubuntu-ports jammy main restricted universe multiverse" | sudo tee /etc/apt/sources.list
+          echo "deb http://ports.ubuntu.com/ubuntu-ports jammy main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list
           echo "deb http://ports.ubuntu.com/ubuntu-ports jammy-updates main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list
           echo "deb http://ports.ubuntu.com/ubuntu-ports jammy-backports main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list
           echo "deb http://ports.ubuntu.com/ubuntu-ports jammy-security main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list
@@ -22,7 +22,7 @@ jobs:
 
       - name: Set up Build Environment
         run: |
-          sudo dpkg --add-architecture binary-arm64
+          sudo dpkg --add-architecture arm64
           sudo apt-get update
           sudo apt-get install -y build-essential devscripts dh-systemd fakeroot \
             python-all python-docutils iproute2 python-ipaddr python-setuptools \
