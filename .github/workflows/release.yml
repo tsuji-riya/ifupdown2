@@ -36,10 +36,10 @@ jobs:
         run: |
           sudo dpkg --add-architecture arm64
           sudo apt-get update
-          sudo apt-get install -y build-essential devscripts dh-systemd fakeroot \
-            python-all python-docutils iproute2 python-ipaddr python-setuptools \
+          sudo apt-get install -y build-essential devscripts fakeroot \
+            python-all python3-docutils iproute2 python3-ipaddr python-setuptools \
             dh-python python3-all python3-setuptools python3-docutils ethtool \
-            bridge-utils python-gvgen python-mako
+            bridge-utils python3-gvgen python3-mako
 
       - name: Build Package
         run: make deb
