@@ -93,4 +93,4 @@ install: clean ## install the package to the active Python's site-packages
 	python setup.py install
 
 deb: clean ## create a debian package (.deb)
-	debuild -b -rfakeroot -us -uc
+	dpkg-buildpackage -us -uc -b --host-arch arm64
